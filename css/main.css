@@ -785,10 +785,12 @@ h5 {
   margin-top: 24px;
 }
 
-.video-card {
-  border: 1px solid var(--gray-color-3);
-  padding: 14px;
-  background: var(--white-color);
+.video-card video,
+.video-card iframe {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  border: none;
 }
 
 .video-card video {
