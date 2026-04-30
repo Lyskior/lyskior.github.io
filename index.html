@@ -8,10 +8,11 @@
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/media.css" />
 
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
-  />
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
 <body>
@@ -25,12 +26,10 @@
       <nav class="nav">
         <ul class="nav-list">
           <li><a href="index.html" class="nav-link active">Home</a></li>
-          <li><a href="overview.html" class="nav-link">Overview</a></li>
           <li><a href="blender.html" class="nav-link">Blender</a></li>
           <li><a href="vex.html" class="nav-link">VEX</a></li>
           <li><a href="virtual.html" class="nav-link">Project</a></li>
           <li><a href="awards.html" class="nav-link">Awards</a></li>
-          <li><a href="contact.html" class="nav-link">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -38,7 +37,7 @@
 </header>
 
 <!-- HERO -->
-<section id="home" class="hero">
+<section id="home" class="hero hero-bg">
   <div class="container container-lg">
     <div class="hero-row">
 
@@ -49,14 +48,23 @@
           Robotics • Design • Systems Thinking
         </span>
 
-        <div style="margin-top: 20px;">
-          <a href="overview.html" class="btn">View My Work</a>
-          <a href="contact.html" class="btn btn-white">Contact Me</a>
-        </div>
-      </div>
+        <!-- BUTTON + ICONS -->
+        <div style="margin-top: 20px; text-align: center;">
+          <a href="#overview" class="btn">View My Work</a>
 
-      <div class="hero-img" data-aos="fade-up">
-        <img src="img/hero/hero.png" alt="Hero Image">
+          <div style="margin-top: 15px; display: flex; justify-content: center; gap: 18px;">
+            <a href="https://github.com/Lyskior" target="_blank" class="icon-link" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jakim28@student.kis.or.kr&su=Portfolio%20Inquiry" 
+              target="_blank" 
+              class="icon-link" 
+              title="Email Me">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -73,7 +81,6 @@
 
     <div class="about-row">
 
-      <!-- LEFT -->
       <div class="about-content" data-aos="fade-up">
         <p class="about-descr">
           I’m a student focused on robotics, design, and building systems that solve real problems.
@@ -82,10 +89,9 @@
           creativity to create projects that are both functional and impactful.
         </p>
 
-        <a href="overview.html" class="btn">Explore My Work</a>
+        <a href="#overview" class="btn">Explore My Work</a>
       </div>
 
-      <!-- RIGHT (UPDATED TECH STACK) -->
       <div class="about-skills" data-aos="fade-up">
         <div class="skill-card">
           <h3>Languages</h3>
@@ -109,7 +115,85 @@
       </div>
 
     </div>
+  </div>
+</section>
 
+<!-- OVERVIEW -->
+<section id="overview" class="projects">
+  <div class="container container-lg">
+    <div class="projects-title">
+      <h1 class="title">Overview of My Work</h1>
+      <p class="page-text" style="max-width: 800px; margin: 0 auto 20px; text-align: center;">
+        This section brings together the main areas of my work, including robotics,
+        3D design, technical projects, achievements, and other experiences that
+        reflect my growth in engineering, creativity, and leadership.
+      </p>
+    </div>
+
+    <div class="evidence-grid" style="margin-top: 40px;">
+      <div class="evidence-card">
+        <h3>Blender</h3>
+        <p>
+          3D modeling, rendering, and creative design work developed through
+          personal practice and leadership in my school Blender club.
+        </p>
+        <a href="blender.html" class="btn">View Page</a>
+      </div>
+
+      <div class="evidence-card">
+        <h3>VEX Robotics</h3>
+        <p>
+          A three-year progression in robotics involving design, iteration,
+          teamwork, engineering decisions, and technical growth.
+        </p>
+        <a href="vex.html" class="btn">View Page</a>
+      </div>
+
+      <div class="evidence-card">
+        <h3>Projects</h3>
+        <p>
+          Selected technical and creative projects that combine coding,
+          engineering, design, and problem-solving.
+        </p>
+        <a href="virtual.html" class="btn">View Page</a>
+      </div>
+
+      <div class="evidence-card">
+        <h3>Awards</h3>
+        <p>
+          Recognition for work in robotics, leadership, academics, and
+          community involvement across multiple areas.
+        </p>
+        <a href="awards.html" class="btn">View Page</a>
+      </div>
+    </div>
+
+    <div class="section-block">
+      <h2 class="section-subtitle">What This Portfolio Shows</h2>
+      <p class="page-text">
+        Across these pages, my work reflects a combination of technical skill,
+        long-term commitment, creative problem-solving, and leadership. While
+        each section focuses on something different, together they show how I
+        approach learning by building, iterating, and taking on greater
+        responsibility over time.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SCHOOL -->
+<section class="school" style="padding-bottom: 80px;">
+  <div class="container">
+    <div class="section-block" style="text-align: center;">
+      <h2 class="section-subtitle">Education</h2>
+      <p class="page-text" style="max-width: 700px; margin: 0 auto;">
+        I am currently a student at 
+        <a href="https://www.kis.or.kr" target="_blank" style="font-weight: 600;">
+          Korea International School
+        </a>, 
+        where I pursue interests in robotics, engineering, and design through both academic coursework and extracurricular projects.
+      </p>
+    </div>
   </div>
 </section>
 

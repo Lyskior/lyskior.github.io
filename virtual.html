@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Virtual Tour Project</title>
+  <title>Projects</title>
 
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/media.css" />
+
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
@@ -14,92 +15,153 @@
 </head>
 
 <body>
-  <header class="header">
-    <div class="container container-lg">
-      <div class="header-nav">
-        <a href="index.html" class="logo">J.Kim</a>
 
-        <nav class="nav">
-          <ul class="nav-list">
-            <li><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="overview.html" class="nav-link">Overview</a></li>
-            <li><a href="blender.html" class="nav-link">Blender</a></li>
-            <li><a href="vex.html" class="nav-link">VEX</a></li>
-            <li><a href="virtual.html" class="nav-link active">Project</a></li>
-            <li><a href="awards.html" class="nav-link">Awards</a></li>
-            <li><a href="contact.html" class="nav-link">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </header>
+<!-- HEADER -->
+<header class="header">
+  <div class="container container-lg">
+    <div class="header-nav">
+      <a href="index.html" class="logo">J.Kim</a>
 
-  <section class="about">
-    <div class="container">
-      <div class="about-title" data-aos="fade-up">
-        <h2 class="title">Virtual Tour & Admissions Chatbot</h2>
-      </div>
-
-      <div class="about-content" data-aos="fade-up">
-        <p class="about-descr">
-          This project combines an interactive virtual school tour with a chatbot
-          designed to help prospective students and families navigate information
-          more easily. I built it in response to a real problem I noticed:
-          students and parents new to the school often struggle to understand the
-          campus layout and find answers to practical questions. The goal was to
-          create a more accessible and engaging way to explore the school while
-          making information available in a format that feels intuitive and useful.
-        </p>
-
-        <ul class="section-list">
-          <li>Built the overall system and interface</li>
-          <li>Focused on usability and clear user experience</li>
-          <li>Connected the project to a real admissions-related need</li>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="blender.html" class="nav-link">Blender</a></li>
+          <li><a href="vex.html" class="nav-link">VEX</a></li>
+          <li><a href="virtual.html" class="nav-link active">Project</a></li>
+          <li><a href="awards.html" class="nav-link">Awards</a></li>
         </ul>
-      </div>
+      </nav>
+    </div>
+  </div>
+</header>
 
-      <div class="section-block" data-aos="fade-up">
-        <h3 class="section-subtitle">Project Images</h3>
-        <p class="page-text">
-          Selected screenshots showing the interface, visual layout, and parts of
-          the user experience.
+<!-- PROJECTS -->
+<section class="projects">
+  <div class="container container-lg">
+
+    <!-- TITLE -->
+    <div class="projects-title" data-aos="fade-up">
+      <h1 class="title">Projects</h1>
+      <p class="page-text" style="max-width: 800px; margin: 0 auto 40px; text-align: center;">
+        A collection of technical, research, and creative work spanning robotics,
+        AI systems, design, and problem-solving in real-world contexts.
+      </p>
+    </div>
+
+    <!-- PROJECT GRID -->
+    <div class="evidence-grid">
+
+      <!-- VIRTUAL TOUR -->
+      <div class="evidence-card" data-aos="fade-up">
+        <h4>Virtual Tour & Admissions Chatbot</h4>
+
+        <p>
+          An interactive virtual campus tour combined with a chatbot to help
+          prospective students and families navigate school information more easily.
         </p>
 
-        <div class="carousel">
-          <div class="carousel-track">
-            <div class="carousel-slide">
-              <img src="img/virtual/virtual1.jpg" alt="Virtual Tour Image 1" />
-              <p class="media-caption"><strong>Caption:</strong> Main virtual tour interface and overall system layout.</p>
-            </div>
-            <div class="carousel-slide">
-              <img src="img/virtual/virtual2.jpg" alt="Virtual Tour Image 2" />
-              <p class="media-caption"><strong>Caption:</strong> A view emphasizing navigation and accessibility for new users.</p>
-            </div>
-            <div class="carousel-slide">
-              <img src="img/virtual/virtual3.jpg" alt="Virtual Tour Image 3" />
-              <p class="media-caption"><strong>Caption:</strong> Example of project visuals supporting exploration and context.</p>
-            </div>
-            <div class="carousel-slide">
-              <img src="img/virtual/virtual4.jpg" alt="Virtual Tour Image 4" />
-              <p class="media-caption"><strong>Caption:</strong> Another part of the user experience showing the project in action.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+        <ul class="skill-list">
+          <li><strong>Focus:</strong> Web systems, UX design, AI integration</li>
+          <li><strong>Tools:</strong> Flask, HTML/CSS, JavaScript, Pano2VR</li>
+          <li><strong>Impact:</strong> Helps new students navigate campus and information</li>
+        </ul>
 
-      <div class="section-block" data-aos="fade-up">
-        <h3 class="section-subtitle">Live Demo</h3>
         <a href="https://threedtour.onrender.com/" target="_blank" class="btn">
-          Open Live Project
+          Live Demo
         </a>
       </div>
-    </div>
-  </section>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script type="module" src="js/main.js"></script>
-  <script>
-    AOS.init();
-  </script>
+      <!-- RESEARCH PAPER -->
+      <div class="evidence-card" data-aos="fade-up">
+        <h4>Published Research Paper</h4>
+
+        <p>
+          A published research paper developed through a structured school-supported
+          research process involving review, approval, and scientific communication.
+        </p>
+
+        <ul class="skill-list">
+          <li><strong>Focus:</strong> Scientific research and technical writing</li>
+          <li><strong>Process:</strong> SRC approval and publication preparation</li>
+          <li><strong>Result:</strong> Official publication with DOI</li>
+        </ul>
+
+        <a href="https://doi.org/10.59720/24-312" target="_blank" class="btn">
+          View Paper
+        </a>
+      </div>
+
+    </div>
+
+    <!-- FEATURED PROJECT DETAIL -->
+    <div class="section-block" data-aos="fade-up">
+      <h2 class="section-subtitle">Featured Project: Virtual Tour & Admissions Chatbot</h2>
+
+      <p class="page-text">
+        This project combines an interactive virtual school tour with a chatbot
+        designed to help prospective students and families navigate information
+        more easily. I built it in response to a real problem I noticed: students
+        and parents new to the school often struggle to understand the campus
+        layout and find answers to practical questions.
+      </p>
+
+      <ul class="section-list">
+        <li>Designed and implemented the overall system and interface</li>
+        <li>Focused on usability, navigation, and clear user experience</li>
+        <li>Connected the project to a real admissions-related need</li>
+        <li>Combined spatial navigation with chatbot-based information access</li>
+      </ul>
+    </div>
+
+    <!-- PROJECT IMAGES -->
+    <div class="section-block" data-aos="fade-up">
+      <h2 class="section-subtitle">Virtual Tour Images</h2>
+
+      <p class="page-text">
+        Selected screenshots showing the interface, visual layout, and parts of
+        the user experience.
+      </p>
+
+      <div class="carousel">
+        <div class="carousel-track">
+
+          <div class="carousel-slide">
+            <img src="img/virtual/virtual1.jpg" alt="Virtual Tour Image 1" />
+            <p class="media-caption">Main virtual tour interface and overall system layout.</p>
+          </div>
+
+          <div class="carousel-slide">
+            <img src="img/virtual/virtual2.jpg" alt="Virtual Tour Image 2" />
+            <p class="media-caption">Navigation and accessibility design for new users.</p>
+          </div>
+
+          <div class="carousel-slide">
+            <img src="img/virtual/virtual3.jpg" alt="Virtual Tour Image 3" />
+            <p class="media-caption">Visual elements supporting exploration and context.</p>
+          </div>
+
+          <div class="carousel-slide">
+            <img src="img/virtual/virtual4.jpg" alt="Virtual Tour Image 4" />
+            <p class="media-caption">Project shown in use.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SCRIPTS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script type="module" src="js/main.js"></script>
+
+<script>
+  AOS.init({
+    duration: 800,
+    once: true
+  });
+</script>
+
 </body>
 </html>

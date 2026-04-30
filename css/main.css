@@ -206,7 +206,7 @@ h5 {
 }
 
 .hero-content {
-  text-align: left;
+  text-align: center;
   align-self: center;
   padding: 20px;
   flex-grow: 1;
@@ -701,9 +701,9 @@ h5 {
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start; /* KEY CHANGE */
 
-  min-height: 220px; /* forces equal height */
+  min-height: 220px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
   transition: all 0.25s ease;
 }
@@ -882,14 +882,97 @@ h5 {
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
+.hero-bg {
+  position: relative;
+  background: 
+    linear-gradient(120deg, rgba(255,255,255,0.97) 35%, rgba(255,255,255,0.1)),
+    url('../img/hero/hero.png') center 30%/cover no-repeat;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.nav-icons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.icon-link {
+  font-size: 18px;
+  color: #000;
+  transition: 0.2s ease;
+}
+
+.icon-link:hover {
+  opacity: 0.6;
+}
+
 .skill-list {
-  padding-left: 18px;
-  margin: 0;
+  margin-top: 10px;
+  padding-left: 0;
+  list-style: none;
 }
 
 .skill-list li {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.evidence-card h4 {
+  margin-bottom: 10px;
+}
+
+/* PROJECTS PAGE */
+.project-page {
+  padding: 7rem 0;
+  background-color: var(--primary-bg-color);
+}
+
+.project-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 50px;
+}
+
+.project-card {
+  background: var(--white-color);
+  border: 1px solid var(--gray-color-3);
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: all 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.project-card h4 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.project-card p {
   font-size: 14px;
-  color: #555;
-  line-height: 1.5;
+  line-height: 1.6;
+  color: var(--gray-text-color);
+  margin-bottom: 14px;
+}
+
+.project-card .btn {
+  margin-top: 18px;
+}
+
+.project-details {
+  background: var(--white-color);
+  border: 1px solid var(--gray-color-3);
+  border-radius: 14px;
+  padding: 32px;
+  margin-top: 60px;
+}
+
+.project-details p {
+  margin-bottom: 18px;
 }
