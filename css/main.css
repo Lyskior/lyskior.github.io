@@ -976,3 +976,831 @@ h5 {
 .project-details p {
   margin-bottom: 18px;
 }
+/* =========================
+   HOBBIES MIND MAP
+========================= */
+
+.hobby-mindmap-section {
+  margin-top: 50px;
+  margin-bottom: 80px;
+}
+
+.mindmap-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  height: 620px;
+  margin: 0 auto;
+}
+
+.mindmap-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.mindmap-lines line {
+  stroke: rgba(111, 29, 27, 0.45);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 10;
+  animation: lineFlow 3s linear infinite;
+}
+
+@keyframes lineFlow {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.mindmap-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 210px;
+  height: 210px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--white-color);
+  border: 1px solid var(--gray-color-3);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 5;
+}
+
+.mindmap-center h1 {
+  font-size: 42px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--primary-accent);
+}
+
+.mindmap-node {
+  position: absolute;
+  width: 220px;
+  height: 135px;
+  padding: 24px;
+  border-radius: 18px;
+  background: var(--white-color);
+  border: 1px solid var(--gray-color-3);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  z-index: 4;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+
+  transition: all 0.25s ease;
+}
+
+.mindmap-node:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.mindmap-node i {
+  font-size: 32px;
+  color: var(--secondary-accent);
+}
+
+.mindmap-node h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.node-fpv {
+  left: 5%;
+  top: 8%;
+}
+
+.node-guitar {
+  right: 5%;
+  top: 8%;
+}
+
+.node-gaming {
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+
+.node-gaming:hover {
+  transform: translateX(-50%) translateY(-5px);
+}
+
+.mindmap-mini {
+  position: absolute;
+  padding: 13px 22px;
+  border-radius: 999px;
+  background: var(--secondary-accent);
+  color: var(--white-color);
+  font-weight: 600;
+  font-size: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  z-index: 4;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.mindmap-mini:hover {
+  transform: translateY(-5px);
+}
+
+.mini-1 {
+  left: 18%;
+  top: 64%;
+}
+
+.mini-2 {
+  right: 18%;
+  top: 64%;
+}
+
+.mini-3 {
+  left: 50%;
+  top: 4%;
+  transform: translateX(-50%);
+}
+
+.mini-3:hover {
+  transform: translateX(-50%) translateY(-5px);
+}
+
+/* Responsive mind map */
+@media (max-width: 950px) {
+  .mindmap-wrapper {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    align-items: center;
+  }
+
+  .mindmap-lines {
+    display: none;
+  }
+
+  .mindmap-center,
+  .mindmap-node,
+  .mindmap-mini {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    transform: none;
+  }
+
+  .mindmap-center {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    min-height: 120px;
+    border-radius: 18px;
+    padding: 34px 24px;
+  }
+
+  .mindmap-center h1 {
+    font-size: 36px;
+  }
+
+  .mindmap-node {
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    min-height: 110px;
+  }
+
+  .mindmap-node:hover,
+  .node-gaming:hover {
+    transform: translateY(-5px);
+  }
+
+  .mindmap-mini {
+    width: fit-content;
+  }
+
+  .mini-3,
+  .mini-3:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .mindmap-wrapper {
+    gap: 16px;
+  }
+
+  .mindmap-center h1 {
+    font-size: 32px;
+  }
+
+  .mindmap-node {
+    padding: 22px 18px;
+  }
+
+  .mindmap-node h3 {
+    font-size: 18px;
+  }
+
+  .mindmap-node i {
+    font-size: 28px;
+  }
+
+  .mindmap-mini {
+    font-size: 13px;
+    padding: 10px 16px;
+  }
+}
+/* =========================================================
+   INTERACTIVE HOBBIES ADDITIONS
+   Keep all existing main.css code above this section.
+========================================================= */
+
+.hobbies-intro {
+  max-width: 760px;
+  margin: -30px auto 0;
+  text-align: center;
+}
+
+.hobby-mindmap-section {
+  margin-top: 42px;
+  margin-bottom: 42px;
+}
+
+.mindmap-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  max-width: 1000px;
+  margin: 0 auto 14px;
+}
+
+.mindmap-instructions {
+  color: var(--gray-text-color);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.mindmap-reset {
+  min-width: auto;
+  height: 42px;
+  line-height: 38px;
+  padding: 0 20px;
+  margin: 0;
+  border-radius: 999px;
+  letter-spacing: 0.12em;
+  flex-shrink: 0;
+}
+
+.mindmap-viewport {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid var(--gray-color-3);
+  border-radius: 24px;
+
+  background:
+    radial-gradient(
+      circle at 1px 1px,
+      rgba(12, 22, 24, 0.09) 1px,
+      transparent 0
+    )
+    0 0 / 28px 28px,
+    rgba(255, 255, 255, 0.72);
+
+  box-shadow:
+    0 10px 34px rgba(0, 0, 0, 0.06);
+}
+
+.mindmap-wrapper {
+  position: relative;
+  width: 100%;
+  height: 620px;
+  touch-action: none;
+  user-select: none;
+}
+
+.mindmap-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.mindmap-lines line {
+  stroke: rgba(111, 29, 27, 0.42);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 10;
+  animation: hobbyLineFlow 3s linear infinite;
+}
+
+@keyframes hobbyLineFlow {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.mindmap-draggable {
+  position: absolute;
+  z-index: 4;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.mindmap-draggable:active,
+.mindmap-draggable.is-dragging {
+  cursor: grabbing;
+  z-index: 20;
+}
+
+.mindmap-center,
+.mindmap-node,
+.mindmap-mini {
+  font-family: inherit;
+  color: inherit;
+  border: 0;
+
+  transition:
+    box-shadow 0.22s ease,
+    border-color 0.22s ease,
+    background-color 0.22s ease;
+}
+
+.mindmap-center {
+  left: 0px;
+  top: 0px;
+  width: 210px;
+  height: 210px;
+  padding: 24px;
+  border-radius: 50%;
+
+  background: var(--white-color);
+  border: 1px solid var(--gray-color-3);
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  text-align: center;
+}
+
+.mindmap-center h2 {
+  margin: 0;
+  color: var(--primary-accent);
+  font-size: 42px;
+  font-weight: 600;
+}
+
+.mindmap-center span {
+  color: var(--gray-text-color);
+  font-size: 13px;
+}
+
+.mindmap-node {
+  width: 220px;
+  min-height: 135px;
+  padding: 24px;
+  border-radius: 18px;
+
+  background: var(--white-color);
+  border: 1px solid var(--gray-color-3);
+
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.05);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+
+  text-align: center;
+}
+
+.mindmap-node i {
+  color: var(--secondary-accent);
+  font-size: 32px;
+  pointer-events: none;
+}
+
+.mindmap-node h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.mindmap-node::after {
+  content: "Click to open";
+  color: var(--gray-text-color);
+  font-size: 11px;
+  opacity: 0;
+  transform: translateY(4px);
+  pointer-events: none;
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.mindmap-node:hover::after,
+.mindmap-node:focus-visible::after,
+.mindmap-node.is-active::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mindmap-center:hover,
+.mindmap-node:hover,
+.mindmap-mini:hover,
+.mindmap-center:focus-visible,
+.mindmap-node:focus-visible,
+.mindmap-mini:focus-visible {
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.12);
+
+  outline: none;
+}
+
+.mindmap-node.is-active,
+.mindmap-center.is-active {
+  border-color: var(--secondary-accent);
+
+  box-shadow:
+    0 0 0 4px rgba(111, 29, 27, 0.12),
+    0 12px 28px rgba(0, 0, 0, 0.1);
+}
+
+.node-fpv {
+  left: 50px;
+  top: 50px;
+}
+
+.node-guitar {
+  left: 730px;
+  top: 50px;
+}
+
+.node-gaming {
+  left: 390px;
+  top: 465px;
+  transform: none;
+}
+
+.node-gaming:hover {
+  transform: none;
+}
+
+.mindmap-mini {
+  padding: 13px 22px;
+  border-radius: 999px;
+
+  background: var(--secondary-accent);
+  color: var(--white-color);
+
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.mini-1 {
+  left: 170px;
+  top: 390px;
+}
+
+.mini-2 {
+  left: 720px;
+  top: 390px;
+}
+
+.mini-3 {
+  left: 450px;
+  top: 55px;
+  transform: none;
+}
+
+.mini-3:hover {
+  transform: none;
+}
+
+/* CLICK-OPEN DETAIL AREA */
+
+.hobby-detail-shell {
+  max-width: 1000px;
+  margin: 0 auto 70px;
+}
+
+.hobby-detail-placeholder,
+.hobby-detail-panel {
+  background: var(--white-color);
+  border: 1px solid var(--gray-color-3);
+  border-radius: 18px;
+
+  box-shadow:
+    0 8px 28px rgba(0, 0, 0, 0.06);
+}
+
+.hobby-detail-placeholder {
+  padding: 26px;
+  text-align: center;
+  color: var(--gray-text-color);
+}
+
+.hobby-detail-panel {
+  position: relative;
+  display: none;
+  grid-template-columns:
+    minmax(0, 1.1fr)
+    minmax(260px, 0.9fr);
+
+  gap: 30px;
+  align-items: center;
+  padding: 30px;
+
+  animation:
+    hobbyPanelIn 0.32s ease both;
+}
+
+.hobby-detail-panel.is-visible {
+  display: grid;
+}
+
+@keyframes hobbyPanelIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hobby-detail-copy {
+  min-width: 0;
+}
+
+.hobby-detail-kicker {
+  display: inline-block;
+  margin-bottom: 9px;
+
+  color: var(--secondary-accent);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.hobby-detail-panel h2 {
+  margin-bottom: 14px;
+  font-size: 30px;
+}
+
+.hobby-detail-panel p {
+  color: var(--supportive-text-color);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.hobby-detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 20px;
+}
+
+.hobby-detail-tags span {
+  padding: 8px 12px;
+  border-radius: 999px;
+
+  background: var(--primary-bg-color);
+  border: 1px solid var(--gray-color-3);
+
+  color: var(--supportive-text-color);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.hobby-detail-media {
+  min-width: 0;
+}
+
+.hobby-detail-media img {
+  display: block;
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+.hobby-detail-media .media-caption {
+  margin: 10px 2px 0;
+  font-size: 13px;
+}
+
+.hobby-detail-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+
+  border: 1px solid var(--gray-color-3);
+  background: var(--white-color);
+  color: var(--main-text-color);
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.hobby-detail-close:hover,
+.hobby-detail-close:focus-visible {
+  background: var(--primary-accent);
+  color: var(--white-color);
+  outline: none;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 950px) {
+  .mindmap-toolbar {
+    align-items: flex-start;
+  }
+
+  .mindmap-viewport {
+    overflow: visible;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .mindmap-wrapper {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+    touch-action: auto;
+  }
+
+  .mindmap-lines {
+    display: none;
+  }
+
+  .mindmap-draggable,
+  .mindmap-center,
+  .mindmap-node,
+  .mindmap-mini,
+  .node-fpv,
+  .node-guitar,
+  .node-gaming,
+  .mini-1,
+  .mini-2,
+  .mini-3 {
+    position: relative;
+    left: auto !important;
+    top: auto !important;
+    right: auto;
+    bottom: auto;
+    transform: none !important;
+    cursor: pointer;
+  }
+
+  .mindmap-center {
+    width: 100%;
+    height: auto;
+    min-height: 120px;
+    border-radius: 18px;
+  }
+
+  .mindmap-center h2 {
+    font-size: 36px;
+  }
+
+  .mindmap-node {
+    width: 100%;
+    min-height: 110px;
+  }
+
+  .mindmap-mini {
+    align-self: center;
+  }
+
+  .hobby-detail-panel,
+  .hobby-detail-panel.is-visible {
+    grid-template-columns: 1fr;
+  }
+
+  .hobby-detail-media {
+    order: -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .mindmap-toolbar {
+    flex-direction: column;
+  }
+
+  .mindmap-reset {
+    width: 100%;
+  }
+
+  .mindmap-center h2 {
+    font-size: 32px;
+  }
+
+  .mindmap-node {
+    padding: 22px 18px;
+  }
+
+  .mindmap-node h3 {
+    font-size: 18px;
+  }
+
+  .mindmap-node i {
+    font-size: 28px;
+  }
+
+  .mindmap-mini {
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+
+  .hobby-detail-panel {
+    padding: 22px;
+  }
+
+  .hobby-detail-panel h2 {
+    font-size: 25px;
+  }
+
+  .hobby-detail-media img {
+    height: 220px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mindmap-lines line,
+  .hobby-detail-panel {
+    animation: none;
+  }
+}
+/* Fix JavaScript positioning for the draggable mind map */
+
+@media (min-width: 951px) {
+  .mindmap-center {
+    left: 0;
+    top: 0;
+    right: auto;
+    bottom: auto;
+    transform: none !important;
+  }
+
+  .mindmap-draggable,
+  .mindmap-draggable:hover,
+  .mindmap-draggable:focus-visible,
+  .mindmap-draggable.is-dragging {
+    transform: none !important;
+  }
+}

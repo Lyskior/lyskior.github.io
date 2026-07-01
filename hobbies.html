@@ -10,10 +10,16 @@
   <link rel="stylesheet" href="css/media.css" />
 
   <!-- AOS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+  />
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
 </head>
 
 <body>
@@ -31,108 +37,383 @@
           <li><a href="vex.html" class="nav-link">VEX</a></li>
           <li><a href="virtual.html" class="nav-link">Project</a></li>
           <li><a href="awards.html" class="nav-link">Awards</a></li>
-          <li><a href="hobbies.html" class="nav-link active">Hobbies</a></li>
+          <li>
+            <a href="hobbies.html" class="nav-link active">Hobbies</a>
+          </li>
         </ul>
       </nav>
     </div>
   </div>
 </header>
 
-<!-- HOBBIES HERO -->
-<section class="projects" style="padding-top: 160px;">
+<!-- HOBBIES PAGE -->
+<main class="projects hobbies-page">
   <div class="container container-lg">
 
     <div class="projects-title" data-aos="fade-up">
       <h1 class="title">Hobbies</h1>
 
-      <p class="page-text" style="max-width: 850px; margin: 0 auto 20px; text-align: center;">
-        Outside of academics and technical projects, my hobbies give me space to explore creativity,
-        technology, competition, and personal expression. Whether I am flying FPV drones, playing
-        electric guitar, or relaxing through video games, these interests reflect different sides of
-        how I learn, focus, and have fun.
+      <p class="page-text hobbies-intro">
+        Drag the bubbles to rearrange the map. Click a hobby icon to
+        open its story and media.
       </p>
     </div>
 
-    <!-- HOBBY CARDS -->
-    <div class="evidence-grid" style="margin-top: 45px;">
-
-      <div class="evidence-card" data-aos="fade-up">
-        <h3>FPV Drones</h3>
-        <p>
-          FPV drone flying combines engineering, control, and fast reaction time. I am interested in
-          the way drones connect hardware, camera systems, motors, and manual control into one
-          immersive experience.
+    <!-- INTERACTIVE MIND MAP -->
+    <section
+      class="hobby-mindmap-section"
+      data-aos="fade-up"
+      aria-label="Interactive hobbies mind map"
+    >
+      <div class="mindmap-toolbar">
+        <p class="mindmap-instructions">
+          Desktop: drag any bubble. Mobile: tap a hobby to open it.
         </p>
+
+        <button
+          class="btn btn-white mindmap-reset"
+          id="mindmapReset"
+          type="button"
+        >
+          Reset map
+        </button>
       </div>
 
-      <div class="evidence-card" data-aos="fade-up">
-        <h3>Electric Guitar</h3>
-        <p>
-          Playing electric guitar gives me a creative outlet away from schoolwork and technical
-          projects. It helps me develop patience, rhythm, and personal expression through music.
-        </p>
+      <div class="mindmap-viewport">
+        <div class="mindmap-wrapper" id="hobbyMindmap">
+
+          <!-- Lines move automatically with the nodes -->
+          <svg
+            class="mindmap-lines"
+            id="mindmapLines"
+            aria-hidden="true"
+          >
+            <line data-target="fpv"></line>
+            <line data-target="guitar"></line>
+            <line data-target="gaming"></line>
+            <line data-target="focus"></line>
+            <line data-target="practice"></line>
+            <line data-target="creativity"></line>
+          </svg>
+
+          <!-- CENTER -->
+          <button
+            class="mindmap-center mindmap-draggable"
+            id="mindmapCenter"
+            type="button"
+            data-node-id="center"
+            data-panel="overview"
+            aria-controls="panel-overview"
+          >
+            <h2>Hobbies</h2>
+            <span>Click for overview</span>
+          </button>
+
+          <!-- FPV -->
+          <button
+            class="mindmap-node mindmap-draggable node-fpv"
+            type="button"
+            data-node-id="fpv"
+            data-panel="fpv"
+            aria-controls="panel-fpv"
+          >
+            <i class="fa-solid fa-plane-up" aria-hidden="true"></i>
+            <h3>FPV Drones</h3>
+          </button>
+
+          <!-- GUITAR -->
+          <button
+            class="mindmap-node mindmap-draggable node-guitar"
+            type="button"
+            data-node-id="guitar"
+            data-panel="guitar"
+            aria-controls="panel-guitar"
+          >
+            <i class="fa-solid fa-guitar" aria-hidden="true"></i>
+            <h3>Electric Guitar</h3>
+          </button>
+
+          <!-- GAMING -->
+          <button
+            class="mindmap-node mindmap-draggable node-gaming"
+            type="button"
+            data-node-id="gaming"
+            data-panel="gaming"
+            aria-controls="panel-gaming"
+          >
+            <i class="fa-solid fa-gamepad" aria-hidden="true"></i>
+            <h3>Video Games</h3>
+          </button>
+
+          <!-- SMALL TOPIC NODES -->
+          <button
+            class="mindmap-mini mindmap-draggable mini-1"
+            type="button"
+            data-node-id="focus"
+            data-panel="overview"
+          >
+            Focus
+          </button>
+
+          <button
+            class="mindmap-mini mindmap-draggable mini-2"
+            type="button"
+            data-node-id="practice"
+            data-panel="overview"
+          >
+            Practice
+          </button>
+
+          <button
+            class="mindmap-mini mindmap-draggable mini-3"
+            type="button"
+            data-node-id="creativity"
+            data-panel="overview"
+          >
+            Creativity
+          </button>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CLICK-OPEN DETAILS -->
+    <section
+      class="hobby-detail-shell"
+      id="hobbyDetails"
+      aria-live="polite"
+    >
+      <div
+        class="hobby-detail-placeholder"
+        id="hobbyPlaceholder"
+      >
+        Select an icon in the mind map to explore a hobby.
       </div>
 
-      <div class="evidence-card" data-aos="fade-up">
-        <h3>Video Games</h3>
-        <p>
-          Video games are both a way to relax and a way to think strategically. I enjoy games that
-          involve decision-making, mechanics, timing, teamwork, and problem-solving.
-        </p>
-      </div>
+      <!-- OVERVIEW -->
+      <article
+        class="hobby-detail-panel"
+        id="panel-overview"
+        data-panel-id="overview"
+        hidden
+      >
+        <button
+          class="hobby-detail-close"
+          type="button"
+          aria-label="Close hobby details"
+        >
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
 
-    </div>
+        <div class="hobby-detail-copy">
+          <span class="hobby-detail-kicker">
+            The connection
+          </span>
 
-    <!-- CONNECTION SECTION -->
-    <div class="section-block" data-aos="fade-up">
-      <h2 class="section-subtitle">Why These Hobbies Matter</h2>
+          <h2>What They Have in Common</h2>
 
-      <p class="page-text">
-        These hobbies may seem separate, but they connect to many of the same skills I use in my
-        projects. FPV drones relate to robotics, control systems, and spatial awareness. Electric
-        guitar develops discipline and creativity. Video games involve strategy, adaptation, and
-        quick decision-making. Together, they show how I enjoy learning through hands-on experience,
-        experimentation, and personal challenge.
-      </p>
-    </div>
-
-    <!-- OPTIONAL MEDIA SECTION -->
-    <div class="section-block" data-aos="fade-up">
-      <h2 class="section-subtitle">Media</h2>
-
-      <p class="page-text">
-        This section can include photos or videos of my FPV drone setup, guitar practice, favorite
-        game clips, or other moments that show these hobbies in action.
-      </p>
-
-      <div class="project-gallery">
-
-        <div class="project-gallery-item">
-          <img src="img/hobbies/fpv.jpg" alt="FPV drone hobby image">
-          <p class="media-caption">
-            FPV drone setup, flight footage, or related equipment.
+          <p>
+            These hobbies look different, but they all combine control
+            and creativity. FPV drones demand precision and reaction,
+            guitar depends on rhythm and expression, and games reward
+            strategy and adaptation. Together, they give me ways to
+            focus, experiment, improve, and enjoy the process of
+            getting better.
           </p>
+
+          <div class="hobby-detail-tags">
+            <span>Focus</span>
+            <span>Practice</span>
+            <span>Creativity</span>
+            <span>Adaptation</span>
+          </div>
         </div>
 
-        <div class="project-gallery-item">
-          <img src="img/hobbies/guitar.jpg" alt="Electric guitar hobby image">
+        <div class="hobby-detail-media">
+          <img
+            src="img/hobbies/gaming.jpg"
+            alt="A collection representing Jayden's hobbies"
+          />
+
           <p class="media-caption">
-            Electric guitar practice, gear, or performance-related media.
+            Different activities, connected by the same drive to
+            improve.
           </p>
         </div>
+      </article>
 
-        <div class="project-gallery-item">
-          <img src="img/hobbies/gaming.jpg" alt="Video games hobby image">
-          <p class="media-caption">
-            Gaming setup, clips, or screenshots from games I enjoy.
+      <!-- FPV DETAILS -->
+      <article
+        class="hobby-detail-panel"
+        id="panel-fpv"
+        data-panel-id="fpv"
+        hidden
+      >
+        <button
+          class="hobby-detail-close"
+          type="button"
+          aria-label="Close FPV drone details"
+        >
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+
+        <div class="hobby-detail-copy">
+          <span class="hobby-detail-kicker">
+            Technical + instinctive
+          </span>
+
+          <h2>FPV Drones</h2>
+
+          <p>
+            FPV drones combine control, reaction time, hardware,
+            camera systems, and spatial awareness. I like how flying
+            feels both technical and instinctive: every movement
+            requires precision, but smooth flying eventually becomes
+            almost automatic.
           </p>
+
+          <div class="hobby-detail-tags">
+            <span>Control</span>
+            <span>Reaction time</span>
+            <span>Hardware</span>
+            <span>Spatial awareness</span>
+          </div>
         </div>
 
-      </div>
-    </div>
+        <div class="hobby-detail-media">
+          <iframe
+            src="https://drive.google.com/file/d/1AOvFb600KwpUHva-i96gOXZUdW71kkH6/preview"
+            title="FPV drone flight footage"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+            loading="lazy"
+            style="
+              width: 100%;
+              aspect-ratio: 16 / 9;
+              display: block;
+              border: 0;
+              border-radius: 16px;
+            "
+          ></iframe>
+
+          <p class="media-caption">
+            Building control through flying, practice, and hardware.
+          </p>
+        </div>
+      </article>
+
+      <!-- GUITAR DETAILS -->
+      <article
+        class="hobby-detail-panel"
+        id="panel-guitar"
+        data-panel-id="guitar"
+        hidden
+      >
+        <button
+          class="hobby-detail-close"
+          type="button"
+          aria-label="Close electric guitar details"
+        >
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+
+        <div class="hobby-detail-copy">
+          <span class="hobby-detail-kicker">
+            Rhythm + expression
+          </span>
+
+          <h2>Electric Guitar</h2>
+
+          <p>
+            Guitar gives me a creative outlet away from school and
+            technical projects. It teaches rhythm, patience, tone,
+            and the satisfaction of slow improvement. Small changes
+            in timing and touch can completely change how a song
+            feels.
+          </p>
+
+          <div class="hobby-detail-tags">
+            <span>Rhythm</span>
+            <span>Patience</span>
+            <span>Tone</span>
+            <span>Expression</span>
+          </div>
+        </div>
+
+        <div class="hobby-detail-media">
+          <iframe
+            src="https://drive.google.com/file/d/1tQ5bQSnuPM_6Uub5uIXHKRaSkcyf3D4A/preview"
+            title="Electric guitar media"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+            loading="lazy"
+            style="
+              width: 100%;
+              aspect-ratio: 16 / 9;
+              display: block;
+              border: 0;
+              border-radius: 16px;
+            "
+          ></iframe>
+
+          <p class="media-caption">
+            A creative outlet away from screens and schoolwork.
+          </p>
+        </div>
+      </article>
+
+      <!-- GAMING DETAILS -->
+      <article
+        class="hobby-detail-panel"
+        id="panel-gaming"
+        data-panel-id="gaming"
+        hidden
+      >
+        <button
+          class="hobby-detail-close"
+          type="button"
+          aria-label="Close video game details"
+        >
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+
+        <div class="hobby-detail-copy">
+          <span class="hobby-detail-kicker">
+            Mechanics + decisions
+          </span>
+
+          <h2>Video Games</h2>
+
+          <p>
+            I enjoy games that involve mechanics, timing, teamwork,
+            and decision-making. They are a way to relax while still
+            thinking strategically, adapting to other players, and
+            learning from mistakes in real time.
+          </p>
+
+          <div class="hobby-detail-tags">
+            <span>Strategy</span>
+            <span>Timing</span>
+            <span>Teamwork</span>
+            <span>Adaptation</span>
+          </div>
+        </div>
+
+        <div class="hobby-detail-media">
+          <img
+            src="img/hobbies/gaming.jpg"
+            alt="Gaming setup or gameplay"
+          />
+
+          <p class="media-caption">
+            Strategy, timing, and mechanics in action.
+          </p>
+        </div>
+      </article>
+    </section>
 
   </div>
-</section>
+</main>
 
 <!-- FOOTER -->
 <footer class="footer">
@@ -146,9 +427,14 @@
 <!-- SCRIPTS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script type="module" src="js/main.js"></script>
+<script type="module" src="js/hobbies.js"></script>
 
 <script>
-  AOS.init();
+  AOS.init({
+    duration: 800,
+    once: true,
+    offset: 80
+  });
 </script>
 
 </body>
