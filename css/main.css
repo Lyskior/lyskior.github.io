@@ -2,18 +2,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 :root {
-  --primary-bg-color: #f7fbfd;
-  --primary-accent: #0c1618;
-  --secondary-accent: #6f1d1b;
+  --primary-bg-color: #e7d3c6;
+  --primary-accent: #171d20;
+  --secondary-accent: #d85f3a;
+  --tertiary-accent: #d9a97c;
+  --soft-accent: #b7d8d1;
 
-  --main-text-color: #0c1618;
-  --supportive-text-color: #242d2f;
-  --gray-text-color: #565a5b;
+  --main-text-color: #1a2023;
+  --supportive-text-color: #2e3639;
+  --gray-text-color: #4d575a;
 
-  --white-color: #fff;
-  --gray-color: #e9e8e8;
-  --gray-color-2: #c0c0c0;
-  --gray-color-3: #e6e6e6;
+  --white-color: #fffdfb;
+  --gray-color: #e9e2da;
+  --gray-color-2: #c4b8ad;
+  --gray-color-3: #e6dfd7;
+  --card-bg: rgba(255, 255, 255, 0.82);
+
+  --shadow-soft: rgba(31, 43, 47, 0.09);
+  --shadow-strong: rgba(31, 43, 47, 0.16);
 
   --color-preloader-bg: var(--white-color);
   --color-dots: #1a1a1a;
@@ -26,9 +32,24 @@ html {
 }
 
 body {
+  position: relative;
   color: var(--main-text-color);
   font-family: "Poppins", sans-serif;
   letter-spacing: -0.15px;
+  background:
+    radial-gradient(800px 500px at calc(15% + var(--mouse-shift-x, 0px)) calc(15% + var(--mouse-shift-y, 0px)), rgba(255, 255, 255, 0.58), transparent 55%),
+    radial-gradient(700px 550px at calc(85% - var(--mouse-shift-x, 0px)) calc(20% - var(--mouse-shift-y, 0px)), rgba(183, 216, 209, 0.62), transparent 60%),
+    radial-gradient(900px 650px at 50% calc(85% + var(--mouse-shift-y, 0px)), rgba(216, 95, 58, 0.18), transparent 60%),
+    linear-gradient(180deg, #f7f0ea 0%, #ead8cc 38%, #e4d4c8 100%);
+  background-size: 110% 110%, 110% 110%, 110% 110%, 100% 100%;
+  background-position: 0% 0%, 100% 0%, 50% 100%, center;
+  animation: backgroundShift 18s ease-in-out infinite alternate;
+  opacity: 0;
+  transition: opacity 0.45s ease-out;
+}
+
+body.page-ready {
+  opacity: 1;
 }
 
 .container {
@@ -45,6 +66,7 @@ body {
 .title {
   font-size: 44px;
   font-weight: 600;
+  letter-spacing: -0.05em;
   text-align: center;
   margin-bottom: 54px;
 }
@@ -65,17 +87,20 @@ body {
   white-space: nowrap;
   cursor: pointer;
   transition: all 0.3s;
-  background-color: var(--primary-accent);
-  border: 2px solid var(--primary-accent);
+  background: linear-gradient(135deg, var(--primary-accent) 0%, #374d53 100%);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(31, 43, 47, 0.14);
   transition: all 0.3s ease-in;
 }
 
 .btn:hover,
 .btn:focus {
-  background-color: var(--secondary-accent);
-  border-color: var(--secondary-accent);
+  background: linear-gradient(135deg, var(--secondary-accent) 0%, #d59776 100%);
+  border-color: transparent;
   color: var(--white-color);
   outline: 0;
+  box-shadow: 0 16px 28px rgba(184, 106, 77, 0.22);
 }
 
 .btn:active {
@@ -83,9 +108,9 @@ body {
 }
 
 .btn-white {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.45);
   font-weight: 700;
-  border: 2px solid var(--primary-accent);
+  border: 2px solid rgba(31, 43, 47, 0.3);
   color: var(--primary-accent);
   transition: all 0.3s ease-in;
 }
@@ -232,6 +257,7 @@ h5 {
   font-weight: 400;
 }
 
+
 .hero-img {
   display: flex;
   flex: 1 1 356px;
@@ -276,6 +302,8 @@ h5 {
 /* About section */
 .about {
   padding: 7rem 0;
+  background: transparent;
+  border-top: 1px solid rgba(23, 29, 32, 0.06);
 }
 
 .about-row {
@@ -370,7 +398,8 @@ h5 {
 /* Works */
 .projects {
   padding: 7rem 0;
-  background-color: var(--primary-bg-color);
+  background: transparent;
+  border-top: 1px solid rgba(23, 29, 32, 0.06);
 }
 
 .projects-title {
@@ -462,6 +491,8 @@ h5 {
 .contact {
   padding: 7rem 0;
   text-align: center;
+  background: transparent;
+  border-top: 1px solid rgba(23, 29, 32, 0.06);
 }
 
 .contact-content {
@@ -669,6 +700,40 @@ h5 {
     top: 0;
   }
 }
+
+@keyframes backgroundShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes floatBlob {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate3d(-10px, 14px, 0) rotate(6deg);
+  }
+  100% {
+    transform: translate3d(12px, -10px, 0) rotate(-4deg);
+  }
+}
+
+@keyframes floatBlobAlt {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(12deg);
+  }
+  50% {
+    transform: translate3d(16px, -8px, 0) rotate(18deg);
+  }
+  100% {
+    transform: translate3d(-10px, 12px, 0) rotate(6deg);
+  }
+}
+
 .section-subtitle {
   font-size: 28px;
   font-weight: 600;
@@ -694,18 +759,35 @@ h5 {
 
 /* CARD */
 .evidence-card {
-  background: #ffffff;
-  border: 1px solid #e5e5e5;
-  border-radius: 12px;
-  padding: 20px;
+  position: relative;
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248, 239, 232, 0.94));
+  border: 1px solid rgba(31, 43, 47, 0.08);
+  border-left: 4px solid var(--secondary-accent);
+  border-radius: 18px;
+  padding: 24px 22px 20px;
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* KEY CHANGE */
+  justify-content: flex-start;
 
   min-height: 220px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 14px 30px var(--shadow-soft);
   transition: all 0.25s ease;
+  overflow: hidden;
+}
+
+.evidence-card::before,
+.skill-card::before,
+.project-card::before,
+.pdf-link-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 96px;
+  height: 96px;
+  background: linear-gradient(135deg, rgba(184, 106, 77, 0.18), rgba(216, 229, 225, 0.2));
+  clip-path: polygon(0 0, 100% 0, 0 100%);
 }
 
 /* TEXT */
@@ -728,8 +810,9 @@ h5 {
 
 /* HOVER */
 .evidence-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transform: translateY(-6px) rotate(-0.15deg);
+  box-shadow: 0 18px 38px var(--shadow-strong);
+  border-color: rgba(184, 106, 77, 0.28);
 }
 
 .pdf-links {
@@ -739,9 +822,13 @@ h5 {
 }
 
 .pdf-link-card {
-  border: 1px solid var(--gray-color-3);
+  position: relative;
+  border: 1px solid rgba(31, 43, 47, 0.08);
+  border-radius: 18px;
   padding: 22px;
-  background: var(--white-color);
+  background: var(--card-bg);
+  box-shadow: 0 14px 30px var(--shadow-soft);
+  overflow: hidden;
 }
 
 .pdf-link-card h4 {
@@ -856,12 +943,15 @@ h5 {
 }
 
 .skill-card {
-  background: #ffffff;
+  position: relative;
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(234, 245, 242, 0.92));
   padding: 20px;
-  border-radius: 12px;
-  border: 1px solid #e5e5e5;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  border-radius: 16px;
+  border: 1px solid rgba(31, 43, 47, 0.08);
+  border-top: 3px solid var(--soft-accent);
+  box-shadow: 0 14px 30px var(--shadow-soft);
   transition: all 0.25s ease;
+  overflow: hidden;
 }
 
 .skill-card h3 {
@@ -878,18 +968,46 @@ h5 {
 
 /* hover effect */
 .skill-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transform: translateY(-6px) rotate(-0.15deg);
+  box-shadow: 0 18px 38px var(--shadow-strong);
+  border-color: rgba(184, 106, 77, 0.28);
 }
 
 .hero-bg {
   position: relative;
-  background: 
-    linear-gradient(120deg, rgba(255,255,255,0.97) 35%, rgba(255,255,255,0.1)),
+  overflow: hidden;
+  background:
+    linear-gradient(120deg, rgba(23, 29, 32, 0.88) 0%, rgba(23, 29, 32, 0.5) 28%, rgba(183, 216, 209, 0.58) 100%),
     url('../img/hero/hero.png') center 30%/cover no-repeat;
   min-height: 100vh;
   display: flex;
   align-items: center;
+}
+
+.hero-bg::before {
+  content: "";
+  position: absolute;
+  right: clamp(2%, 4vw, 6%);
+  top: 12%;
+  width: 280px;
+  height: 280px;
+  border-radius: 30% 70% 60% 40% / 42% 38% 62% 58%;
+  background: linear-gradient(135deg, rgba(184, 106, 77, 0.16), rgba(216, 229, 225, 0.46));
+  box-shadow: inset 0 0 0 1px rgba(31, 43, 47, 0.06);
+  animation: floatBlob 14s ease-in-out infinite alternate;
+}
+
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  left: 6%;
+  bottom: 10%;
+  width: 220px;
+  height: 220px;
+  border-radius: 58% 42% 50% 50% / 40% 58% 42% 60%;
+  background: linear-gradient(135deg, rgba(31, 43, 47, 0.08), rgba(184, 106, 77, 0.12));
+  transform: rotate(12deg);
+  animation: floatBlobAlt 16s ease-in-out infinite alternate;
 }
 
 .nav-icons {
@@ -936,17 +1054,20 @@ h5 {
 }
 
 .project-card {
-  background: var(--white-color);
-  border: 1px solid var(--gray-color-3);
-  border-radius: 14px;
+  position: relative;
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(244, 236, 230, 0.94));
+  border: 1px solid rgba(31, 43, 47, 0.08);
+  border-radius: 18px;
   padding: 28px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 14px 30px var(--shadow-soft);
   transition: all 0.25s ease;
+  overflow: hidden;
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  transform: translateY(-6px) rotate(-0.15deg);
+  box-shadow: 0 18px 38px var(--shadow-strong);
+  border-color: rgba(184, 106, 77, 0.28);
 }
 
 .project-card h4 {

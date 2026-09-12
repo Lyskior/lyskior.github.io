@@ -3,6 +3,59 @@ import form from "./form.js";
 import skillbar from "./skillbar.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+  const seasonTheme = {
+    spring: {
+      secondary: "#5d9c68",
+      tertiary: "#b7d79a",
+      soft: "#dcefd8",
+    },
+    summer: {
+      secondary: "#e6b34a",
+      tertiary: "#f6d777",
+      soft: "#f8e7aa",
+    },
+    fall: {
+      secondary: "#d0663c",
+      tertiary: "#dca36c",
+      soft: "#f0d0ad",
+    },
+    winter: {
+      secondary: "#4c79a8",
+      tertiary: "#9ec0d9",
+      soft: "#d9ebf7",
+    },
+  };
+
+  const getSeason = () => {
+    const month = new Date().getMonth() + 1;
+
+    if (month >= 3 && month <= 5) return "spring";
+    if (month >= 6 && month <= 8) return "summer";
+    if (month >= 9 && month <= 11) return "fall";
+    return "winter";
+  };
+
+  const applySeasonTheme = (selectedSeason = getSeason()) => {
+    const palette = seasonTheme[selectedSeason];
+
+    document.documentElement.style.setProperty("--secondary-accent", palette.secondary);
+    document.documentElement.style.setProperty("--tertiary-accent", palette.tertiary);
+    document.documentElement.style.setProperty("--soft-accent", palette.soft);
+  };
+
+  applySeasonTheme();
+
+  const updateMouseShift = (event) => {
+    const x = (event.clientX / window.innerWidth - 0.5) * 24;
+    const y = (event.clientY / window.innerHeight - 0.5) * 24;
+
+    document.documentElement.style.setProperty("--mouse-shift-x", `${x}px`);
+    document.documentElement.style.setProperty("--mouse-shift-y", `${y}px`);
+  };
+
+  window.addEventListener("pointermove", updateMouseShift, { passive: true });
+  document.body.classList.add("page-ready");
+
   AOS.init({
     once: true,
   });
